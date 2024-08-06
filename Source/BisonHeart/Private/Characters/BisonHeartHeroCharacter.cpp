@@ -5,7 +5,7 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "BisonHeart/Public/BisonHeartGameplayTags.h"
-#include "BisonHeart/Public/BisonHeartInputComponent.h"
+#include "BisonHeart/Public/Components/BisonHeartInputComponent.h"
 
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
