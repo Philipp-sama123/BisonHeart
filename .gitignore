@@ -1,0 +1,83 @@
+# Ignore all files by default
+*
+
+# Do not ignore directories
+!*/
+
+# Do not ignore git files in the root of the repo
+!/.git*
+
+# Do not ignore current project's `.uproject`
+!/*.uproject
+
+# Do not ignore source, config, and plugins directories
+!/Source/**
+!/Config/**
+!/Plugins/**
+
+# Do not ignore any files from /Content and /RawContent
+!/Content/**
+!/RawContent/**
+
+# Ignore specific files in the Content directory, only track .uasset and .umap files
+/Content/*
+!/Content/**/*.uasset
+!/Content/**/*.umap
+
+# Ignore files in the RawContent directory, but allow everything inside
+!/RawContent/**/*
+
+# Ignore build and generated directories
+/Binaries
+/DerivedDataCache
+/Intermediate
+/Saved
+
+# OS/platform generated files
+
+# Windows
+ehthumbs.db
+Thumbs.db
+# Mac OS X
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+# Linux
+*~
+.directory
+
+# vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Visual Studio
+.vs
+
+# Ignore additional Unreal Engine generated files
+*.log
+*.tmp
+*.bak
+*.cache
+*.dll
+*.exe
+*.pdb
+*.suo
+*.user
+*.userosscache
+*.users
+*.vcxproj
+*.vcxproj.*
+*.pidb
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.moved
+
+# Ignore the Assets folder inside Content
+/Content/Assets

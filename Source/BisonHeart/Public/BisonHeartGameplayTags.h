@@ -1,0 +1,13 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "NativeGameplayTags.h"
+
+namespace BisonHeartGameplayTags
+{
+	/** Input Tags **/
+	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Move)
+	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Look)
+	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Jump) // ToDo: Input Jump
+}
