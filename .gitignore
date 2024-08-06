@@ -19,11 +19,12 @@
 !/Content/**
 !/RawContent/**
 
-# Ignore specific files in the Content directory, only track .uasset and .umap files
+# Ignore specific files in the Content directory, only track .uasset and .umap files and custom directories
 /Content/*
 !/Content/**/*.uasset
 !/Content/**/*.umap
-
+!/Content/_PlayerCharacter
+!/Content/_GameModes
 # Ignore files in the RawContent directory, but allow everything inside
 !/RawContent/**/*
 
