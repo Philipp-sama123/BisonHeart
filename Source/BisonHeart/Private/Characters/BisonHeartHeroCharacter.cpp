@@ -9,6 +9,7 @@
 
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/Combat/HeroCombatComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 #include "GameFramework/CharacterMovementComponent.h"
@@ -36,6 +37,9 @@ ABisonHeartHeroCharacter::ABisonHeartHeroCharacter()
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 500.f, 0.f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+	GetCharacterMovement()->JumpZVelocity = 750.f;
+
+	HeroCombatComponent = CreateDefaultSubobject<UHeroCombatComponent>(TEXT("HeroCombatComponent"));
 }
 
 void ABisonHeartHeroCharacter::PossessedBy(AController* NewController)
