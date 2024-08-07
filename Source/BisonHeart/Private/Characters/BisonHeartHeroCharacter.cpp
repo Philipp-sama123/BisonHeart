@@ -4,6 +4,7 @@
 #include "BisonHeart/Public/Characters/BisonHeartHeroCharacter.h"
 
 #include "EnhancedInputSubsystems.h"
+#include "AbilitySystem/BisonHeartAbilitySystemComponent.h"
 #include "BisonHeart/Public/BisonHeartGameplayTags.h"
 #include "BisonHeart/Public/Components/BisonHeartInputComponent.h"
 
@@ -13,6 +14,7 @@
 
 #include "GameFramework/CharacterMovementComponent.h"
 #include "BisonHeart/Public/DebugHelper.h"
+
 ABisonHeartHeroCharacter::ABisonHeartHeroCharacter()
 {
 	GetCapsuleComponent()->InitCapsuleSize(40.f, 90.f);
@@ -37,6 +39,22 @@ ABisonHeartHeroCharacter::ABisonHeartHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
+void ABisonHeartHeroCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+	
+	if (BisonHeartAbilitySystemComponent && BisonHeartAttributeSet)
+	{
+		const FString AscText = FString::Printf(
+			TEXT("Owner Actor: %s, Avatar Actor %s"),
+			*BisonHeartAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),
+			*BisonHeartAbilitySystemComponent->GetAvatarActor()->GetActorLabel()
+		);
+		Debug::Print(TEXT("Ability System component valid! " +AscText));
+		Debug::Print(TEXT("AttributeSet component valid! " +AscText));
+	}
+}
+
 void ABisonHeartHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	checkf(InputConfigDataAsset, TEXT("Check if a valid Data asset is assigned!"));
@@ -58,7 +76,6 @@ void ABisonHeartHeroCharacter::SetupPlayerInputComponent(UInputComponent* Player
 void ABisonHeartHeroCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	Debug::Print(TEXT("WORKING!"));
 }
 
 void ABisonHeartHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
