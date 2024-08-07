@@ -42,7 +42,7 @@ ABisonHeartHeroCharacter::ABisonHeartHeroCharacter()
 void ABisonHeartHeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-	
+
 	if (BisonHeartAbilitySystemComponent && BisonHeartAttributeSet)
 	{
 		const FString AscText = FString::Printf(
@@ -70,7 +70,11 @@ void ABisonHeartHeroCharacter::SetupPlayerInputComponent(UInputComponent* Player
 	                                          &ThisClass::Input_Move);
 	MainInputComponent->BindNativeInputAction(InputConfigDataAsset, BisonHeartGameplayTags::InputTag_Look, ETriggerEvent::Triggered, this,
 	                                          &ThisClass::Input_Look);
-	// ToDo: Jump (!)
+
+	MainInputComponent->BindNativeInputAction(InputConfigDataAsset, BisonHeartGameplayTags::InputTag_Jump, ETriggerEvent::Started, this,
+	                                          &ThisClass::Jump);
+	MainInputComponent->BindNativeInputAction(InputConfigDataAsset, BisonHeartGameplayTags::InputTag_Jump, ETriggerEvent::Started, this,
+	                                          &ThisClass::StopJumping);
 }
 
 void ABisonHeartHeroCharacter::BeginPlay()
@@ -109,3 +113,4 @@ void ABisonHeartHeroCharacter::Input_Look(const FInputActionValue& InputActionVa
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
