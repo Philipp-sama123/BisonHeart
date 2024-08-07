@@ -13,5 +13,4 @@ UCLASS()
 class BISONHEART_API UBisonHeartAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
-	
 };

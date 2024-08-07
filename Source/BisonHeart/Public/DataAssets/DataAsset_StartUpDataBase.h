@@ -17,7 +17,7 @@ class BISONHEART_API UDataAsset_StartUpDataBase : public UDataAsset
 	GENERATED_BODY()
 
 public:
-	virtual void GiveToAbilitySystemComponent(UBisonHeartAbilitySystemComponent* InBisonHeartAscToGive, int32 ApplyLevel = 1);
+	virtual void GiveToAbilitySystemComponent(UBisonHeartAbilitySystemComponent* InAscToGive, int32 ApplyLevel = 1);
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="StartupData")
@@ -26,6 +26,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="StartupData")
 	TArray<TSubclassOf<UBisonHeartGameplayAbility>> ReactiveAbilities;
 
-	void GrantAbilities(const TArray<TSubclassOf<UBisonHeartGameplayAbility>>& InAbilitiesToGive, UBisonHeartAbilitySystemComponent* InBisonHeartAscToGive,
+	void GrantAbilities(const TArray<TSubclassOf<UBisonHeartGameplayAbility>>& InAbilitiesToGive,
+	                    UBisonHeartAbilitySystemComponent* InAscToGive,
 	                    int32 ApplyLevel = 1);
 };

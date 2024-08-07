@@ -11,7 +11,7 @@ void UBisonHeartGameplayAbility::OnGiveAbility(const FGameplayAbilityActorInfo* 
 
 	if (AbilityActivationPolicy == EBisonHeartAbilityActivationPolicy::OnGiven)
 	{
-		if (ActorInfo && Spec.IsActive())
+		if (ActorInfo && !Spec.IsActive())
 		{
 			ActorInfo->AbilitySystemComponent->TryActivateAbility(Spec.Handle);
 		}

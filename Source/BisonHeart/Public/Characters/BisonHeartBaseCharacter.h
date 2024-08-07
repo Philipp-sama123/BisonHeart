@@ -7,11 +7,13 @@
 #include "AbilitySystemInterface.h"
 #include "BisonHeartBaseCharacter.generated.h"
 
+class UDataAsset_InputConfig;
+class UDataAsset_StartUpDataBase;
 class UBisonHeartAttributeSet;
 class UBisonHeartAbilitySystemComponent;
 
 UCLASS()
-class BISONHEART_API ABisonHeartBaseCharacter : public ACharacter , public IAbilitySystemInterface
+class BISONHEART_API ABisonHeartBaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -28,8 +30,12 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AbilitySystem")
 	UBisonHeartAbilitySystemComponent* BisonHeartAbilitySystemComponent;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AbilitySystem")
 	UBisonHeartAttributeSet* BisonHeartAttributeSet;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="AbilitySystem", meta=(AllowPrivateAccess="true"))
+	TSoftObjectPtr<UDataAsset_StartUpDataBase> CharacterStartupData;
 
 public:
 	FORCEINLINE UBisonHeartAttributeSet* GetBisonHeartAttributeSet() const { return BisonHeartAttributeSet; };

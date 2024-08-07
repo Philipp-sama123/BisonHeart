@@ -37,7 +37,7 @@ private:
 #pragma endregion
 
 #pragma region Inputs
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Camera", meta=(AllowPrivateAccess="true"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="InputData", meta=(AllowPrivateAccess="true"))
 	UDataAsset_InputConfig* InputConfigDataAsset;
 
 	void Input_Move(const FInputActionValue& InputActionValue);

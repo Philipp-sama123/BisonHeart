@@ -13,5 +13,4 @@ UCLASS()
 class BISONHEART_API UBisonHeartAttributeSet : public UAttributeSet
 {
 	GENERATED_BODY()
-	
 };

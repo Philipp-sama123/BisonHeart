@@ -8,7 +8,7 @@
 
 void UBisonHeartCharacterAnimInstance::NativeInitializeAnimation()
 {
-	//	Super::NativeInitializeAnimation();
+	Super::NativeInitializeAnimation();
 
 	OwningCharacter = Cast<ABisonHeartBaseCharacter>(TryGetPawnOwner());
 
@@ -20,7 +20,8 @@ void UBisonHeartCharacterAnimInstance::NativeInitializeAnimation()
 
 void UBisonHeartCharacterAnimInstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
 {
-	//	Super::NativeThreadSafeUpdateAnimation(DeltaSeconds);
+	Super::NativeThreadSafeUpdateAnimation(DeltaSeconds);
+	
 	if (!OwningCharacter || !OwningMovementComponent) return;
 
 	GroundSpeed = OwningCharacter->GetVelocity().Size2D();

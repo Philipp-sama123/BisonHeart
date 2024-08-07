@@ -4,7 +4,6 @@
 #include "BisonHeart/Public/Characters/BisonHeartHeroCharacter.h"
 
 #include "EnhancedInputSubsystems.h"
-#include "AbilitySystem/BisonHeartAbilitySystemComponent.h"
 #include "BisonHeart/Public/BisonHeartGameplayTags.h"
 #include "BisonHeart/Public/Components/BisonHeartInputComponent.h"
 
@@ -13,7 +12,7 @@
 #include "GameFramework/SpringArmComponent.h"
 
 #include "GameFramework/CharacterMovementComponent.h"
-#include "BisonHeart/Public/DebugHelper.h"
+#include "DataAssets/DataAsset_StartUpDataBase.h"
 
 ABisonHeartHeroCharacter::ABisonHeartHeroCharacter()
 {
@@ -43,15 +42,12 @@ void ABisonHeartHeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	if (BisonHeartAbilitySystemComponent && BisonHeartAttributeSet)
+	if (!CharacterStartupData.IsNull())
 	{
-		const FString AscText = FString::Printf(
-			TEXT("Owner Actor: %s, Avatar Actor %s"),
-			*BisonHeartAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),
-			*BisonHeartAbilitySystemComponent->GetAvatarActor()->GetActorLabel()
-		);
-		Debug::Print(TEXT("Ability System component valid! " +AscText));
-		Debug::Print(TEXT("AttributeSet component valid! " +AscText));
+		if (UDataAsset_StartUpDataBase* LoadedData = CharacterStartupData.LoadSynchronous())
+		{
+			LoadedData->GiveToAbilitySystemComponent(BisonHeartAbilitySystemComponent);
+		}
 	}
 }
 
@@ -113,4 +109,3 @@ void ABisonHeartHeroCharacter::Input_Look(const FInputActionValue& InputActionVa
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
-

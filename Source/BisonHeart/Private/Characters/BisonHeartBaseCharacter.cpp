@@ -29,6 +29,8 @@ void ABisonHeartBaseCharacter::PossessedBy(AController* NewController)
 
 	if (BisonHeartAbilitySystemComponent)
 	{
-		BisonHeartAbilitySystemComponent->InitAbilityActorInfo(this, this);// sets the Actor Info
+		BisonHeartAbilitySystemComponent->InitAbilityActorInfo(this, this); // sets the Actor Info
 	}
+
+	ensureMsgf(!CharacterStartupData.IsNull(), TEXT("Assign Startup Data to %s"), *GetName()); // Makro for checking the Data
 }

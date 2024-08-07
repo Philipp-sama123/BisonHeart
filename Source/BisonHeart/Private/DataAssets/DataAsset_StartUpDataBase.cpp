@@ -2,24 +2,24 @@
 
 
 #include "DataAssets/DataAsset_StartUpDataBase.h"
-
 #include "AbilitySystem/BisonHeartAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/BisonHeartGameplayAbility.h"
 
-void UDataAsset_StartUpDataBase::GiveToAbilitySystemComponent(UBisonHeartAbilitySystemComponent* InBisonHeartAscToGive, int32 ApplyLevel)
+void UDataAsset_StartUpDataBase::GiveToAbilitySystemComponent(UBisonHeartAbilitySystemComponent* InAscToGive, int32 ApplyLevel)
 {
-	check(InBisonHeartAscToGive);
+	check(InAscToGive);
 
-	GrantAbilities(ActivateOnGivenAbilities, InBisonHeartAscToGive, ApplyLevel);
-	GrantAbilities(ReactiveAbilities, InBisonHeartAscToGive, ApplyLevel);
+	GrantAbilities(ActivateOnGivenAbilities, InAscToGive, ApplyLevel);
+	GrantAbilities(ReactiveAbilities, InAscToGive, ApplyLevel);
 }
 
 void UDataAsset_StartUpDataBase::GrantAbilities(const TArray<TSubclassOf<UBisonHeartGameplayAbility>>& InAbilitiesToGive,
-                                                UBisonHeartAbilitySystemComponent* InBisonHeartAscToGive, int32 ApplyLevel)
+                                                UBisonHeartAbilitySystemComponent* InAscToGive, int32 ApplyLevel)
 {
 	if (InAbilitiesToGive.IsEmpty())
 	{
 		return;
+
 	}
 
 	for (const TSubclassOf<UBisonHeartGameplayAbility>& Ability : InAbilitiesToGive)
@@ -27,9 +27,9 @@ void UDataAsset_StartUpDataBase::GrantAbilities(const TArray<TSubclassOf<UBisonH
 		if (!Ability) continue;
 
 		FGameplayAbilitySpec AbilitySpec(Ability);
-		AbilitySpec.SourceObject = InBisonHeartAscToGive->GetAvatarActor();
+		AbilitySpec.SourceObject = InAscToGive->GetAvatarActor();
 		AbilitySpec.Level = ApplyLevel;
-		
-		InBisonHeartAscToGive->GiveAbility(AbilitySpec);
+
+		InAscToGive->GiveAbility(AbilitySpec);
 	}
 }

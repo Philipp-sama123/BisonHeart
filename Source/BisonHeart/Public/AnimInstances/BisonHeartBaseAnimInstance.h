@@ -13,5 +13,4 @@ UCLASS()
 class BISONHEART_API UBisonHeartBaseAnimInstance : public UAnimInstance
 {
 	GENERATED_BODY()
-	
 };
