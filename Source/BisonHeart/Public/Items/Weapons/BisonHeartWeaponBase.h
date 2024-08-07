@@ -6,21 +6,23 @@
 #include "GameFramework/Actor.h"
 #include "BisonHeartWeaponBase.generated.h"
 
+class UBoxComponent;
+
 UCLASS()
 class BISONHEART_API ABisonHeartWeaponBase : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
+
+public:
 	ABisonHeartWeaponBase();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Weapons")
+	UStaticMeshComponent* WeaponMesh;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Weapons")
+	UBoxComponent* WeaponCollisionBox;
 
+public:
+	FORCEINLINE UBoxComponent* GetWeaponCollisionBox() const { return WeaponCollisionBox; };
 };
