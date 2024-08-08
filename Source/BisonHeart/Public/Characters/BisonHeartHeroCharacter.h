@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BisonHeartBaseCharacter.h"
+#include "GameplayTagContainer.h"
 #include "BisonHeartHeroCharacter.generated.h"
 
 struct FInputActionValue;
@@ -47,6 +48,7 @@ private:
 
 	void Input_Move(const FInputActionValue& InputActionValue);
 	void Input_Look(const FInputActionValue& InputActionValue);
+
 #pragma endregion
 
 public:

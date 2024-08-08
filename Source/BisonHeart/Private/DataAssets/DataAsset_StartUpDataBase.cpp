@@ -19,7 +19,6 @@ void UDataAsset_StartUpDataBase::GrantAbilities(const TArray<TSubclassOf<UBisonH
 	if (InAbilitiesToGive.IsEmpty())
 	{
 		return;
-
 	}
 
 	for (const TSubclassOf<UBisonHeartGameplayAbility>& Ability : InAbilitiesToGive)
