@@ -5,22 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "DataAssets/DataAsset_StartUpDataBase.h"
+#include "BisonHeartTypes/BisonHeartStructTypes.h"
 #include "DataAsset_HeroStartUpData.generated.h"
-
-USTRUCT(BlueprintType)
-struct FBisonHeartHeroAbilitySet
-{
-	GENERATED_BODY()
-
-public:
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(Categories="InputTag"))
-	FGameplayTag InputTag;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<UBisonHeartGameplayAbility> AbilityToGrant;
-
-	bool IsValid() const;
-};
 
 /**
  * 

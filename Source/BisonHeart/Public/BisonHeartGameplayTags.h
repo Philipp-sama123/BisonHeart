@@ -14,6 +14,10 @@ namespace BisonHeartGameplayTags
 	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_UnequipAxes);
 
 	/** Player Tags **/
+	
+	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Ability_Equip_Axes);
+	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Ability_Unequip_Axes);
+	
 	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Weapon_Axe_Right);
 	BISONHEART_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Weapon_Axe_Left);
 

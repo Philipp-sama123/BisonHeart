@@ -6,11 +6,6 @@
 #include "AbilitySystem/BisonHeartAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/BisonHeartGameplayAbility.h"
 
-bool FBisonHeartHeroAbilitySet::IsValid() const
-{
-	return InputTag.IsValid() && AbilityToGrant;
-}
-
 void UDataAsset_HeroStartUpData::GiveToAbilitySystemComponent(UBisonHeartAbilitySystemComponent* InAscToGive, int32 ApplyLevel)
 {
 	Super::GiveToAbilitySystemComponent(InAscToGive, ApplyLevel);

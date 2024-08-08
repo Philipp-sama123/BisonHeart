@@ -6,6 +6,7 @@
 #include "AbilitySystemComponent.h"
 #include "BisonHeartAbilitySystemComponent.generated.h"
 
+struct FBisonHeartHeroAbilitySet;
 /**
  * 
  */
@@ -16,4 +17,7 @@ class BISONHEART_API UBisonHeartAbilitySystemComponent : public UAbilitySystemCo
 public:
 	void OnAbilityInputPressed(const FGameplayTag& InInputTag);
 	void OnAbilityInputReleased(const FGameplayTag& InInputTag);
+
+	UFUNCTION(BlueprintCallable, Category="BisonHEart | Ability", meta=(ApplyLevel="1"))
+	void GrantHeroWeaponAbilities(const TArray<FBisonHeartHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandle);
 };
