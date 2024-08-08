@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BisonHeartWeaponBase.h"
+#include "GameplayAbilitySpecHandle.h"
 #include "BisonHeartTypes/BisonHeartStructTypes.h"
 #include "BisonHeartHeroWeapon.generated.h"
 
@@ -15,4 +16,11 @@ class BISONHEART_API ABisonHeartHeroWeapon : public ABisonHeartWeaponBase
 public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="WeaponData")
 	FBisonHeartHeroWeaponData HeroWeaponData;
+	UFUNCTION(BlueprintCallable)
+	void AssignGrantedAbilitySpecHandles(const TArray<FGameplayAbilitySpecHandle>& InSpecHandle);
+	UFUNCTION(BlueprintPure)
+	TArray<FGameplayAbilitySpecHandle> GetGrantedAbilitySpecHandles() const;
+
+private:
+	TArray<FGameplayAbilitySpecHandle> GrantedAbilitySpecHandles;
 };

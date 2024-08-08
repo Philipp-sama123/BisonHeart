@@ -43,3 +43,17 @@ void UBisonHeartAbilitySystemComponent::GrantHeroWeaponAbilities(const TArray<FB
 		OutGrantedAbilitySpecHandle.AddUnique(GiveAbility(AbilitySpec));
 	}
 }
+
+void UBisonHeartAbilitySystemComponent::RemoveGrantedHeroWeaponAbilities(TArray<FGameplayAbilitySpecHandle>& InSpecHandlesToRemove)
+{
+	if (InSpecHandlesToRemove.IsEmpty()) return;
+
+	for (const FGameplayAbilitySpecHandle SpecHandle : InSpecHandlesToRemove)
+	{
+		if (SpecHandle.IsValid())
+		{
+			ClearAbility(SpecHandle);
+		}
+	}
+	InSpecHandlesToRemove.Empty();
+}

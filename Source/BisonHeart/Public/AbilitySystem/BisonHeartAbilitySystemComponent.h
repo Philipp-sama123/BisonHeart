@@ -18,6 +18,10 @@ public:
 	void OnAbilityInputPressed(const FGameplayTag& InInputTag);
 	void OnAbilityInputReleased(const FGameplayTag& InInputTag);
 
-	UFUNCTION(BlueprintCallable, Category="BisonHEart | Ability", meta=(ApplyLevel="1"))
+	UFUNCTION(BlueprintCallable, Category="BisonHeart | Ability", meta=(ApplyLevel="1"))
 	void GrantHeroWeaponAbilities(const TArray<FBisonHeartHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandle);
+
+	UFUNCTION(BlueprintCallable, Category="BisonHeart | Ability", meta=(ApplyLevel="1"))
+	void RemoveGrantedHeroWeaponAbilities(UPARAM(ref) TArray<FGameplayAbilitySpecHandle>& InSpecHandlesToRemove);
+
 };

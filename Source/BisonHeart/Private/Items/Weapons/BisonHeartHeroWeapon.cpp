@@ -3,3 +3,12 @@
 
 #include "Items/Weapons/BisonHeartHeroWeapon.h"
 
+void ABisonHeartHeroWeapon::AssignGrantedAbilitySpecHandles(const TArray<FGameplayAbilitySpecHandle>& InSpecHandle)
+{
+	GrantedAbilitySpecHandles = InSpecHandle;
+}
+
+TArray<FGameplayAbilitySpecHandle> ABisonHeartHeroWeapon::GetGrantedAbilitySpecHandles() const
+{
+	return GrantedAbilitySpecHandles;
+}
