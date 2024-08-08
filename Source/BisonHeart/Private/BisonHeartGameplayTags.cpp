@@ -15,4 +15,7 @@ namespace BisonHeartGameplayTags
 	/** Player Tags **/
 	UE_DEFINE_GAMEPLAY_TAG(Player_Weapon_Axe_Left, "Player.Weapon.Axe.Left");
 	UE_DEFINE_GAMEPLAY_TAG(Player_Weapon_Axe_Right, "Player.Weapon.Axe.Right");
+
+	UE_DEFINE_GAMEPLAY_TAG(Player_Event_Equip_Axes, "Player.Event.Equip.Axes");
+	UE_DEFINE_GAMEPLAY_TAG(Player_Event_Unequip_Axes, "Player.Event.Unequip.Axes");
 }
