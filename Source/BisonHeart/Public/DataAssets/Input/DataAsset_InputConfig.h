@@ -12,7 +12,7 @@ class UInputMappingContext;
 class UInputAction;
 
 USTRUCT(BlueprintType)
-struct FInputActionConfig
+struct FBisonHeartInputActionConfig
 {
 	GENERATED_BODY()
 
@@ -22,6 +22,11 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UInputAction* InputAction;
+
+	bool IsValid() const
+	{
+		return InputTag.IsValid() && InputAction;
+	}
 };
 
 /**
@@ -37,7 +42,10 @@ public:
 	UInputMappingContext* DefaultMappingContext;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(TitleProperty="InputTag"))
-	TArray<FInputActionConfig> NativeInputActions;
+	TArray<FBisonHeartInputActionConfig> NativeInputActions;
 
-	UInputAction* FindNativeInputActionByTag(const FGameplayTag& InInputTag) const; 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(TitleProperty="InputTag"))
+	TArray<FBisonHeartInputActionConfig> AbilityInputActions;
+
+	UInputAction* FindNativeInputActionByTag(const FGameplayTag& InInputTag) const;
 };

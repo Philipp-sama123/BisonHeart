@@ -7,7 +7,7 @@ class UInputAction;
 
 UInputAction* UDataAsset_InputConfig::FindNativeInputActionByTag(const FGameplayTag& InInputTag) const
 {
-	for (const FInputActionConfig& InputActionConfig : NativeInputActions)
+	for (const FBisonHeartInputActionConfig& InputActionConfig : NativeInputActions)
 	{
 		if (InputActionConfig.InputTag == InInputTag && InputActionConfig.InputAction)
 		{
