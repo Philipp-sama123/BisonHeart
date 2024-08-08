@@ -4,6 +4,7 @@
 #include "BisonHeart/Public/Characters/BisonHeartHeroCharacter.h"
 
 #include "EnhancedInputSubsystems.h"
+#include "AbilitySystem/BisonHeartAbilitySystemComponent.h"
 #include "BisonHeart/Public/BisonHeartGameplayTags.h"
 #include "BisonHeart/Public/Components/BisonHeartInputComponent.h"
 
@@ -75,6 +76,9 @@ void ABisonHeartHeroCharacter::SetupPlayerInputComponent(UInputComponent* Player
 	                                          &ThisClass::Jump);
 	MainInputComponent->BindNativeInputAction(InputConfigDataAsset, BisonHeartGameplayTags::InputTag_Jump, ETriggerEvent::Started, this,
 	                                          &ThisClass::StopJumping);
+
+	MainInputComponent->BindAbilityInputAction(InputConfigDataAsset, this, &ThisClass::Input_AbilityInputPressed,
+	                                           &ThisClass::Input_AbilityInputReleased);
 }
 
 void ABisonHeartHeroCharacter::BeginPlay()
@@ -112,4 +116,14 @@ void ABisonHeartHeroCharacter::Input_Look(const FInputActionValue& InputActionVa
 	{
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void ABisonHeartHeroCharacter::Input_AbilityInputPressed(FGameplayTag InInputTag)
+{
+	BisonHeartAbilitySystemComponent->OnAbilityInputPressed((InInputTag));
+}
+
+void ABisonHeartHeroCharacter::Input_AbilityInputReleased(FGameplayTag InInputTag)
+{
+	BisonHeartAbilitySystemComponent->OnAbilityInputReleased((InInputTag));
 }
