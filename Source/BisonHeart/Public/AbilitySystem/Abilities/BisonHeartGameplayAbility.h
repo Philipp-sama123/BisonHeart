@@ -6,6 +6,9 @@
 #include "Abilities/GameplayAbility.h"
 #include "BisonHeartGameplayAbility.generated.h"
 
+class UBisonHeartAbilitySystemComponent;
+class UPawnCombatComponent;
+
 UENUM(BlueprintType)
 enum class EBisonHeartAbilityActivationPolicy :uint8
 {
@@ -30,4 +33,11 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category="BisonHeartAbility")
 	EBisonHeartAbilityActivationPolicy AbilityActivationPolicy = EBisonHeartAbilityActivationPolicy::OnTriggered;
+
+	UFUNCTION(BlueprintPure, Category="BisonHeartAbility | Ability")
+	UPawnCombatComponent* GetPawnCombatComponentFromActorInfo() const;
+
+	UFUNCTION(BlueprintPure, Category="BisonHeartAbility | Ability")
+	UBisonHeartAbilitySystemComponent* GetBisonHeartAbilitySystemComponentFromActorInfo() const;
+	
 };

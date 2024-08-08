@@ -4,6 +4,8 @@
 #include "BisonHeart/Public/AbilitySystem/Abilities/BisonHeartGameplayAbility.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/BisonHeartAbilitySystemComponent.h"
+#include "Components/Combat/PawnCombatComponent.h"
 
 void UBisonHeartGameplayAbility::OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec)
 {
@@ -30,4 +32,14 @@ void UBisonHeartGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Han
 			ActorInfo->AbilitySystemComponent->ClearAbility(Handle);
 		}
 	}
+}
+
+UPawnCombatComponent* UBisonHeartGameplayAbility::GetPawnCombatComponentFromActorInfo() const
+{
+	return GetAvatarActorFromActorInfo()->FindComponentByClass<UPawnCombatComponent>();
+}
+
+UBisonHeartAbilitySystemComponent* UBisonHeartGameplayAbility::GetBisonHeartAbilitySystemComponentFromActorInfo() const
+{
+	return Cast<UBisonHeartAbilitySystemComponent>(CurrentActorInfo->AbilitySystemComponent);
 }
