@@ -3,7 +3,7 @@
 
 #include "BisonHeartTypes/BisonHeartStructTypes.h"
 
-#include "AbilitySystem/Abilities/BisonHeartGameplayAbility.h"
+#include "AbilitySystem/Abilities/BisonHeartHeroGameplayAbility.h"
 
 bool FBisonHeartHeroAbilitySet::IsValid() const
 {

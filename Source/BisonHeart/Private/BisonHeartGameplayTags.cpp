@@ -29,4 +29,6 @@ namespace BisonHeartGameplayTags
 
 	UE_DEFINE_GAMEPLAY_TAG(Player_Event_Equip_Axes, "Player.Event.Equip.Axes");
 	UE_DEFINE_GAMEPLAY_TAG(Player_Event_Unequip_Axes, "Player.Event.Unequip.Axes");
+
+	UE_DEFINE_GAMEPLAY_TAG(Player_Status_JumpToFinisher, "Player.Status.JumpToFinisher");
 }

@@ -5,8 +5,8 @@
 
 #include "BisonHeartStructTypes.generated.h"
 
+class UBisonHeartHeroGameplayAbility;
 class UInputMappingContext;
-class UBisonHeartGameplayAbility;
 class UBisonHeartHeroLinkedAnimLayer;
 
 USTRUCT(BlueprintType)
@@ -19,7 +19,7 @@ public:
 	FGameplayTag InputTag;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<UBisonHeartGameplayAbility> AbilityToGrant;
+	TSubclassOf<UBisonHeartHeroGameplayAbility> AbilityToGrant;
 
 	bool IsValid() const;
 };
